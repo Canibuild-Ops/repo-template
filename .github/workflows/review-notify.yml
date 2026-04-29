@@ -1,0 +1,19 @@
+name: Notify Mark of review requests
+
+# Pings Mark in Slack when a PR in this repo requests his review (typically
+# auto-triggered via CODEOWNERS, since branch protection requires Code Owner
+# review on Mark-only repos). Calls the reusable workflow in
+# Canibuild-Ops/.github.
+
+on:
+  pull_request:
+    types: [review_requested]
+
+jobs:
+  notify:
+    if: github.event.requested_reviewer.login == 'mdeacon-cib'
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: read
+    uses: Canibuild-Ops/.github/.github/workflows/review-notify-reusable.yml@main
