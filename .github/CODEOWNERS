@@ -1,0 +1,4 @@
+# Default reviewers — auto-applied when this template scaffolds a new repo.
+# Adjust to add the repo creator or other co-owners after creation.
+# Branch protection (if enabled) will use this file to enforce Code Owner review.
+* @mdeacon-cib
