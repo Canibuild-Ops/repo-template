@@ -1,0 +1,17 @@
+name: Notify Mark of changes
+
+# Posts a plain-English Claude summary of every push to `main` in this repo
+# to the Canibuild-Ops Slack channel. Calls the reusable workflow in
+# Canibuild-Ops/.github. See:
+# https://github.com/Canibuild-Ops/.github/blob/main/SECURITY.md
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    permissions:
+      id-token: write
+      contents: read
+    uses: Canibuild-Ops/.github/.github/workflows/notify-changes.yml@main
